@@ -17,7 +17,6 @@ function getWines(){
 function filterWines(wines){
 
    let redWines = wines.filter(wine=> wine.wineType === 'Red')
-   
    let whiteWines = wines.filter(wine=> wine.wineType === 'White')
    let sparklingWines = wines.filter(wine=> wine.wineType === 'Sparkling')
    let roseWines = wines.filter(wine=> wine.wineType === 'Rose')
@@ -27,16 +26,15 @@ function filterWines(wines){
    if(e.target.id === 'red-btn'){
        loadWines(redWines)
    }
-   else if(e.target.id === 'white-btn'){
+   if(e.target.id === 'white-btn'){
        loadWines(whiteWines)
    }
-   else if(e.target.id === 'sparkling-btn'){
+   if(e.target.id === 'sparkling-btn'){
       loadWines(sparklingWines)
    }
-   else if(e.target.id === 'rose-btn'){
+   if(e.target.id === 'rose-btn'){
       loadWines(roseWines)
    }
-
 
 })}
 

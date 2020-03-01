@@ -15,18 +15,18 @@
  li {
    margin: 20px;
    font-family: Arial;
-   color: white;
+   color: rgba(105, 57, 57, 0.856);
 
  }
 
 .container {  
    display: flex;  
-   background-color: rgb(152, 154, 159);
+   background-color: rgba(241, 240, 240, 0.329);
  }
 
  .search {  
    flex: 1;  
- }
+ }  
 
  .container > li {  
    flex: 1;  
@@ -59,11 +59,12 @@
   }
 
   #website-title {
-     color: rgb(82, 4, 30);
+     color: rgb(19, 1, 7);
+     font-size: xx-large;
      text-align: left;
      text-decoration: overline;
      letter-spacing: 3px;
-     text-shadow: 3px 2px rgb(228, 121, 121);
+     text-shadow: 3px 2px rgb(200, 149, 149);
   }
 
   .wine-card {
