@@ -42,8 +42,11 @@ function filterWines(wines){
 
 ////// below is equivalent to your renderWines functino but i just added the foreach method here ///////
 
+///// in the below funtion, my thinking is that we need to set the data for each individual wine to a variable. that way when we use the event listener at the botton of this function, we can pass that data through it to the next funtion. but this seems to be the wrong way to do it...//////////
+
+//// i added a button to the wine boxes so we can have an event listener for it to show that specific wines details //////
 function loadWines(filteredwines){
-   filteredwines.forEach(wine=>{ 
+   let wine = filteredwines.forEach(wine=>{ 
    const wineCard = document.createElement("div")
    wineCard.className = "wine-card"
    wineCard.dataset.id = wine.id
@@ -53,19 +56,33 @@ function loadWines(filteredwines){
    <span><em>${wine.region}</em>, ${wine.vintage}</span>
    <br>
    <img src="${wine.image}" class="wine-image"/>
-   <ul>
-      ${wine.grapeVariety}
-      <br>
-      ${wine.wineType}
-      <br>
-      ${wine.notes}
-      <br>
-      $${wine.price}.00
-   </ul>
+   <button id='${wine.id}'
+      <ul>
+         ${wine.grapeVariety}
+         <br>
+         ${wine.wineType}
+         <br>
+         ${wine.notes}
+         <br>
+         $${wine.price}.00
+      </ul>
+   </button>
    `
    wineCardContainer.append(wineCard)
 })
+
+/// for some reason i am having trouble figuring out how to set the wineCard button to a variable so i can say wine_card_box.addEventListener instead of document.addEventListener
+document.addEventListener('click', (e) => loadIndividualWine(e, wine))
+
 } /// end of loadWines
+
+function loadIndividualWine(wine){
+   debugger
+
+}
+
+
+
 
 
 
