@@ -1,0 +1,122 @@
+  
+/* img{
+    height: 30%;
+    width: 30%;
+}
+.image-container{
+    height: 40%;
+    width: 40%;
+}
+.movie{
+    width: 45%;
+    border-style: double;
+} */
+.background-image {
+      background-image: url("https://i.insider.com/5dfe7137855cc2728e0426e2?width=1100&format=jpeg&auto=webp");
+      background-repeat: no-repeat; 
+      max-width:100%;
+      height: 100vh;
+      width: 100vw;
+      opacity: 0.9; 
+  }
+
+  #website-title {
+     color: rgb(82, 4, 30);
+     text-align: left;
+     text-decoration: overline;
+     letter-spacing: 3px;
+     text-shadow: 3px 2px rgb(228, 121, 121);
+  }
+
+  .wine-card {
+   text-align: left;
+   border: grey solid 1px;
+   padding: 1rem;
+   width: 15rem;
+   height: 25rem;
+   display: inline-grid;
+   margin: 1rem 2rem;
+   box-shadow: 3px 4px rgb(145, 55, 55)
+ }
+
+ .wine-image {
+   justify-self: center;
+   height: 12rem;
+   width: auto;
+ }
+   
+.hmpg-wine-btns {
+   border: none;
+   background-color: inherit;
+   padding: 14px 28px;
+   font-size: 16px;
+   cursor: pointer;
+   display: inline-block;
+   color: white;
+ }
+ .hmpg-wine-btns:hover {background: rgba(238, 238, 238, 0.125);}
+
+
+.red-wine-box{
+   width: 10vh;
+   position: absolute;
+   bottom: 500px;
+   left: 200px;
+   background-color: black;
+   color: white;
+   padding: 100px;
+   height: 15vh;
+   font-family: 'Spartan' ;
+}
+
+.white-wine-box{
+   width: 10vh;
+   position: absolute;
+   bottom: 500px;
+   left: 500px;
+   background-color: black;
+   color: white;
+   padding: 100px;
+   height: 15vh;
+   font-family: 'Spartan' ;
+}
+
+.sparkling-wine-box{
+   width: 10vh;
+   position: absolute;
+   bottom: 500px;
+   left: 800px;
+   background-color: black;
+   color: white;
+   padding: 100px;
+   height: 15vh;
+   font-family: 'Spartan' ;
+}
+
+.rose-wine-box{
+   width: 10vh;
+   position: absolute;
+   bottom: 500px;
+   left: 1100px;
+   background-color: black;
+   color: white;
+   padding: 100px;
+   height: 15vh;
+   font-family: 'Spartan' ;
+}
+
+
+
+/* with image */
+/* .red-wine-box{
+   width: 10vh;
+   bottom: 35%;
+   left: 10%;
+   position: absolute;
+   color: black;
+   padding: 100px;
+   height: 15vh;
+   font-family: 'Spartan' ;
+   font-size: 150%;
+   text-align: center;
+} */
