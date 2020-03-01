@@ -10,17 +10,16 @@ require 'faker'
 Wine.destroy_all
 User.destroy_all
 
+
 wineImageArray = [
    "http://t0.gstatic.com/images?q=tbn%3AANd9GcTT3HSlbaOOlIe1kO2mWIWXrJJS-F5uIhZ-dRebS7K87zSv0oHaFYj6Qk-UIlE&usqp=CAc", 
    "http://t0.gstatic.com/images?q=tbn%3AANd9GcRdiHkYUfKM46HmDSDX9sDkTU-ZR9JoFiiOFV2Bp8W_HPHVRaoTjVbZt8eCcSX8bYDzlw80EfY&usqp=CAc",
    "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR8WvTLSrNdulSN0QDALZLsF4pnAptO5FkavuWAz7SDUMZJmIxg", 
    "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQsjMRYSYR1SBlW66qjTY3Eu-hQokS-EY78S3fbkwdjdkhIxG_e",
    "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQPWAn8CP583rpD6yLiwrnowJfP6PE9HDJ3wvrnf8GqJ89bdFX4",
-   "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRfk3yvWvE5oDHfB9nvEhu3Y75M43dzi0_avLdnG9viCwOnC-lf",
    "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ-VeakfAXfEo3G1OfwbgAGNdXKMeYXCho4pp_psZdeCo9AaglC",
    "https://hips.hearstapps.com/bpc.h-cdn.co/assets/17/30/480x480/square-1501268880-saved-red-blend.jpg?resize=480:*",
    "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQkj4vrk64VGiTtdch8sFT3TMeH3_19SpH_5a7mklTZ2V97pWOg",
-   "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRQd5F4LejhYc7k2F2d-asc5w_BQpKHvtlef4CxJwfnAF0jxIWc", 
    "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRDS3leFP-anAMLQ-KWVWCYBS86a3960Rpmkb2IMdh_es_MkBWl", 
    "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTnhLifl8zfrGgV9O15lvHFuzbdm-3cHPq58UlQXRa8Q-tdwUga", 
    "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcThERX9fsEvqmxyPcRdBLfCtUz3oH4aG6Ipi3_18otCxzMFvMOt",
@@ -58,7 +57,6 @@ wineImageArray = [
    "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSQvZwauIVB-ueotOPsNWQjB1EOxBjjMK-GTGk8xehdFqPnuHd-", 
    "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT0Y3ppjvxmK701ZdQbPSgGdgzUTbUo7q56PmdQA926RZRw5bvf", 
    "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTKuQCW2_a_d1yfFHBXImhIcroxa910ZInBzKfhucOQc4gMHjxS", 
-   "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTdzWPk0lGgoeXUmJmekex6QH7jG4d4ircMHvbKOAr6-_0DvAlt", 
    "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTquYS3V9ngR-EkFDVQszfQSd98I7-cYhZ_afzhTiE6chf9YYB6", 
    "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRh2B83prQ3YFirQEaHNJ4gJg6UEtKmNpas_-N7UNxUA6y9LIbR", 
    "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQmL5Aq61ALFxUs0ZcdM24WBPKVhaEeJainpC_NwCF63u2pKE3v", 

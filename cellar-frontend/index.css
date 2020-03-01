@@ -26,8 +26,10 @@
 
  .wine-image {
    justify-self: center;
-   height: 12rem;
-   width: auto;
+   max-width: 500px;
+   height: 200px;
+   /* height: 200px; 
+   width: auto; */
  }
    
 .hmpg-wine-btns {
