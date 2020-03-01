@@ -1,16 +1,3 @@
-  
-/* img{
-    height: 30%;
-    width: 30%;
-}
-.image-container{
-    height: 40%;
-    width: 40%;
-}
-.movie{
-    width: 45%;
-    border-style: double;
-} */
 #welcome-image {
    max-width:100%;
    height: 100vh;
@@ -103,18 +90,3 @@
    font-family: 'Spartan' ;
 }
 
-
-
-/* with image */
-/* .red-wine-box{
-   width: 10vh;
-   bottom: 35%;
-   left: 10%;
-   position: absolute;
-   color: black;
-   padding: 100px;
-   height: 15vh;
-   font-family: 'Spartan' ;
-   font-size: 150%;
-   text-align: center;
-} */
