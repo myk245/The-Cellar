@@ -1,6 +1,7 @@
 
 const WINESURL = "http://localhost:3000/api/v1/wines"
-const wineCardContainer = document.querySelector(".wine-card-container")  
+const wineCardContainer = document.querySelector(".wine-card-container") 
+
 document.addEventListener('DOMContentLoaded', () => {
    getWines()
 }) //DOMContentLoaded closing
@@ -24,15 +25,19 @@ function filterWines(wines){
    document.addEventListener('click', function(e){
    
    if(e.target.id === 'red-btn'){
+      wineCardContainer.innerHTML = ``
        loadWines(redWines)
    }
-   if(e.target.id === 'white-btn'){
+   else if(e.target.id === 'white-btn'){
+      wineCardContainer.innerHTML = ``
        loadWines(whiteWines)
    }
-   if(e.target.id === 'sparkling-btn'){
+   else if(e.target.id === 'sparkling-btn'){
+      wineCardContainer.innerHTML = ``
       loadWines(sparklingWines)
    }
-   if(e.target.id === 'rose-btn'){
+   else if(e.target.id === 'rose-btn'){
+      wineCardContainer.innerHTML = ``
       loadWines(roseWines)
    }
 })}
@@ -43,11 +48,12 @@ function filterWines(wines){
 
 //// i added a button to the wine boxes so we can have an event listener for it to show that specific wines details //////
 function loadWines(filteredwines){
-   let wine = filteredwines.forEach(wine=>{ 
+   filteredwines.forEach(wine=>{   
    const wineCard = document.createElement("div")
+
    wineCard.className = "wine-card"
    wineCard.dataset.id = wine.id
-
+      
    wineCard.innerHTML = `
    <h4 id="wine-label">${wine.label}</h4>
    <span><em>${wine.region}</em>, ${wine.vintage}</span>
@@ -69,12 +75,12 @@ function loadWines(filteredwines){
 })
 
 /// for some reason i am having trouble figuring out how to set the wineCard button to a variable so i can say wine_card_box.addEventListener instead of document.addEventListener
-document.addEventListener('click', (e) => loadIndividualWine(e, wine))
+document.addEventListener('click', (e) => loadIndividualWine(e, ))
 
 } /// end of loadWines
 
 function loadIndividualWine(wine){
-   
+   // debugger
 
 }
 
