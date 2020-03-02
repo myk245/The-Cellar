@@ -59,7 +59,7 @@ function loadWines(filteredwines){
    <span><em>${wine.region}</em>, ${wine.vintage}</span>
    <br>
    <img src="${wine.image}" class="wine-image"/>
-   <button id='${wine.id}'
+   <button class='wine-btn' id='${wine.id}'
       <ul>
          ${wine.grapeVariety}
          <br>
@@ -72,15 +72,19 @@ function loadWines(filteredwines){
    </button>
    `
    wineCardContainer.append(wineCard)
+   
+   let wineButton = document.getElementsByClassName('wine-btn')[0]
+  
+   wineButton.addEventListener('click', (e) => loadIndividualWine(e, wineCard))
 })
 
 /// for some reason i am having trouble figuring out how to set the wineCard button to a variable so i can say wine_card_box.addEventListener instead of document.addEventListener
-document.addEventListener('click', (e) => loadIndividualWine(e, ))
+
 
 } /// end of loadWines
 
-function loadIndividualWine(wine){
-   // debugger
+function loadIndividualWine(e, wineCard){
+   debugger
 
 }
 
