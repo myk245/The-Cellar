@@ -22,11 +22,10 @@ function getWines(){
    .then(filterWines)
 }
 
+
 ////////// this function filters wines by wineType and saves to a variable, and adds event listeners to the buttons on the wine boxes at the top of the page. When button is clicked, data is passed to the loadWines function ////////////
 function filterWines(wines){
-
    let redWines = wines.filter(wine=> wine.wineType === 'Red')
-   
    let whiteWines = wines.filter(wine=> wine.wineType === 'White')
    let sparklingWines = wines.filter(wine=> wine.wineType === 'Sparkling')
    let roseWines = wines.filter(wine=> wine.wineType === 'Rose')
@@ -36,17 +35,15 @@ function filterWines(wines){
    if(e.target.id === 'red-btn'){
        loadWines(redWines)
    }
-   else if(e.target.id === 'white-btn'){
+   if(e.target.id === 'white-btn'){
        loadWines(whiteWines)
    }
-   else if(e.target.id === 'sparkling-btn'){
+   if(e.target.id === 'sparkling-btn'){
       loadWines(sparklingWines)
    }
-   else if(e.target.id === 'rose-btn'){
+   if(e.target.id === 'rose-btn'){
       loadWines(roseWines)
    }
-
-
 })}
 
 ////// below is equivalent to your renderWines functino but i just added the foreach method here ///////

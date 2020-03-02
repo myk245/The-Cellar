@@ -15,18 +15,18 @@
  li {
    margin: 20px;
    font-family: Arial;
-   color: white;
+   color: rgb(255, 255, 255);
 
  }
 
 .container {  
    display: flex;  
-   background-color: rgb(152, 154, 159);
+   background-color: rgb(158, 157, 157);
  }
 
  .search {  
    flex: 1;  
- }
+ }  
 
  .container > li {  
    flex: 1;  
@@ -59,11 +59,12 @@
   }
 
   #website-title {
-     color: rgb(82, 4, 30);
+     color: rgb(85, 20, 41);
+     font-size: xx-large;
      text-align: left;
      text-decoration: overline;
      letter-spacing: 3px;
-     text-shadow: 3px 2px rgb(228, 121, 121);
+     text-shadow: 2px 2px rgb(148, 96, 96);
   }
 
   .wine-card {
@@ -93,6 +94,10 @@
    cursor: pointer;
    display: inline-block;
    color: white;
+   position: absolute;
+   left: 0;
+   top: 40%;
+   width: 100%;
  }
  .hmpg-wine-btns:hover {background: rgba(238, 238, 238, 0.125);}
 
@@ -102,10 +107,10 @@
    position: absolute;
    bottom: 200px;
    left: 100px;
-   background-color: black;
+   background-color: rgb(158, 157, 157);
    color: white;
    padding: 100px;
-   height: 15vh;
+   height: 10vh;
    font-family: 'Spartan' ;
 }
 
@@ -114,22 +119,22 @@
    position: absolute;
    bottom: 200px;
    left: 400px;
-   background-color: black;
+   background-color: rgb(158, 157, 157);
    color: white;
    padding: 100px;
-   height: 15vh;
+   height: 10vh;
    font-family: 'Spartan' ;
 }
 
 .sparkling-wine-box{
    width: 10vh;
-   position: absolute;
+   position: absolute; 
    bottom: 200px;
    left: 700px;
-   background-color: black;
+   background-color: rgb(158, 157, 157);
    color: white;
    padding: 100px;
-   height: 15vh;
+   height: 10vh;
    font-family: 'Spartan' ;
 }
 
@@ -138,10 +143,10 @@
    position: absolute;
    bottom: 200px;
    left: 1000px;
-   background-color: black;
+   background-color: rgb(158, 157, 157);
    color: white;
    padding: 100px;
-   height: 15vh;
+   height: 10vh;
    font-family: 'Spartan' ;
 }
 
