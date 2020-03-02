@@ -6,8 +6,7 @@ class Api::V1::WinesController < ApplicationController
 
    def show
       wine = Wine.find_by(id: params[:id])
+      render(json: wine)
    end 
 
-   def update 
-   end 
 end
