@@ -1,6 +1,6 @@
-const WINESURL = "http://localhost:3000/api/v1/wines"
-const wineCardContainer = document.querySelector(".wine-card-container")
 
+const WINESURL = "http://localhost:3000/api/v1/wines"
+const wineCardContainer = document.querySelector(".wine-card-container")  
 document.addEventListener('DOMContentLoaded', () => {
    getWines()
 }) //DOMContentLoaded closing
@@ -74,7 +74,7 @@ document.addEventListener('click', (e) => loadIndividualWine(e, wine))
 } /// end of loadWines
 
 function loadIndividualWine(wine){
-   debugger
+   
 
 }
 
