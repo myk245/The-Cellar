@@ -1,9 +1,14 @@
 
 const WINESURL = "http://localhost:3000/api/v1/wines"
+const REVIEWSURL = "http://localhost:3000/api/v1/reviews"
 const wineCardContainer = document.querySelector(".wine-card-container") 
+
+const review_container = document.getElementById('the-review-container')
 
 document.addEventListener('DOMContentLoaded', () => {
    getWines()
+   // addReviewForm()
+
 }) //DOMContentLoaded closing
 
 
@@ -95,7 +100,7 @@ function individWinePage(wine){
 
    <!-- Left Column / Wine Image -->
       <div class="left-column">
-         <img data-image="black" src="${wine.image}" alt="">
+         <img data-image="black" class='large-format' src="${wine.image}" alt="">
       </div>
 
       <!-- Right Column -->
@@ -115,26 +120,99 @@ function individWinePage(wine){
       </div><br><br>
 
       <div class="review">
-         <button class='review-btn'>Add Review</button>
+         <button id='rvw-btn' data-id='${wine.id}' class='review-btn'>Add Review</button>  
       </div><br><br>
 
+      <div id='the-review-container'></div>
 
 
       <div class="back-from-product-page">
          <a href="#" class="back-btn">Back to ${wine.wineType} Wines</a>
       </div>
 
+      <div id='review-div'></div>
+
     </div>
 
    </main>
    `
-   winePage.addEventListener('click', (e)=> addReview(e, wine))
    wineCardContainer.append(winePage)
+
+   let review_button = document.getElementById('rvw-btn')
+   review_button.addEventListener("click", function(e){addReviewForm(wine)})
 }
 
-function addReview(e, wine){
+function addReviewForm(wine){
+
+      // debugger
+      let reviewContainer = document.getElementById('the-review-container')
+      let reviewForm = document.createElement("FORM")
+      reviewForm.id = "create-review"
+      reviewForm.dataset.id = wine.id
+      reviewForm.className = "add-review-form"
+      reviewForm.innerHTML =`
+            <h3>Review This Wine:</h3>
+
+            <input id='rating-input'
+               type="integer"
+               name="rating"
+               value=""
+               placeholder="Wine Rating"
+               class="input-text"
+            />
+            <br />
+            <textarea id='review-input'
+               name="comment"
+               value=""
+               placeholder="What'd you think about this wine?"
+               class="input-text"></textarea>
+            <br />
+            <input id='review-submit' data-id='${wine.id}'
+               type="submit"
+               name="submit"
+               value="Submit Review"
+               class="submit-rvw"
+            />
+
+         `
+         // debugger
+   reviewContainer.append(reviewForm)
+
+   let submitReview = document.getElementById('create-review')
+   // debugger
+   submitReview.addEventListener('submit', function(e){
+      e.preventDefault()
+      let thisWine = e.target
+      // debugger
+      postReview(thisWine)
+   })
+
 
 }
+
+function postReview(thisWine){
+   // debugger
+ let wine_rating = document.getElementById('rating-input').value
+ let review = document.getElementById('review-input').value
+ let reviewDiv = document.getElementById('review-div')
+
+ reviewDiv.append(wine_rating, review)
+ let wines_id = thisWine.dataset.id
+//  debugger
+
+ fetch(REVIEWSURL, {
+   method: "POST",
+   headers: {
+      'Content-Type': 'application/json'},
+   body: JSON.stringify({
+      content: review,
+      rating: wine_rating,
+      wine_id: wines_id
+   })
+   })
+}
+
+
 
 
 

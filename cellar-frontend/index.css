@@ -236,3 +236,14 @@ html, body {
 .cart-btn:hover {
   background-color: #475985;
 }
+
+
+.large-format {
+  justify-self: center;
+  /* max-width: 500px; */
+  /* height: 200px; */
+  height: auto;
+  width: 200px;
+  padding-left: 75px;
+}
+
