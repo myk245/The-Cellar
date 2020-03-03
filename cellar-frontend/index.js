@@ -70,22 +70,22 @@ function loadWines(filteredwines){
    </button>
    `
    wineCardContainer.append(wineCard) 
-   let wineButton = document.getElementsByClassName('wine-btn')[0]
+   let wineButton = wineCard.getElementsByClassName('wine-btn')[0]
    // debugger
-   wineButton.addEventListener('click', (e) => loadIndividualWine(e, `${wine}`))
+   wineButton.addEventListener('click', (e) => loadIndividualWine(e, wine))
 })
 } /// end of loadWines
 
 function loadIndividualWine(e, wine){
-   debugger
+   // debugger
    // console.log(e.target.id)
-   fetch(WINESURL + `/${e.target.id}`)
+   fetch(WINESURL + `/${e.target.dataset.id}`)
    .then(resp=>resp.json())
    .then(individWinePage)
 }
 
 function individWinePage(wine){
-//debugger
+// debugger
    wineCardContainer.innerHTML = ``
    const winePage = document.createElement("div")
    winePage.dataset.id = `${wine.id}`
