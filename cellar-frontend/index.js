@@ -239,9 +239,9 @@ function patchReview(thisWine){
 
 function updateReview(review){
    // debugger
-   let this_review_id = review.id 
-   document.getElementBy()
-   if(review.id === ) 
+   // let this_review_id = review.id 
+   // document.getElementBy()
+   // if(review.id === ) 
 
 }
 

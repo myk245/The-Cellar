@@ -9,6 +9,7 @@ require 'faker'
 
 Wine.destroy_all
 User.destroy_all
+Review.destroy_all
 
 
 wineImageArray = [
@@ -87,3 +88,5 @@ wineImageArray = [
 end
 
 User.create(name: "TC")
+
+
