@@ -132,15 +132,46 @@ function individWinePage(wine){
 
       <div id='review-div'></div>
 
+      <div class='post-review-class' id='post-review-div'>Review</div>
+
     </div>
 
    </main>
    `
    wineCardContainer.append(winePage)
 
+   loadReviews(wine)
+
+
+
    let review_button = document.getElementById('rvw-btn')
    review_button.addEventListener("click", function(e){addReviewForm(wine)})
 }
+
+function loadReviews(wine){
+   debugger
+   let review_div = document.getElementById('post-review-id')
+   wine.reviews.forEach(review=>{
+      fetch(REVIEWSURL)
+      .then(resp=>resp.json())
+      .then(loadIndividualWine)
+
+}
+
+
+{
+         
+   let li = document.createElement('li')
+   li.innerHTML=`
+   ${review.rating}<br>
+   ${review.content}<br>
+   `
+   review_div.append(li)
+})       
+
+
+
+
 
 function addReviewForm(wine){
 
@@ -177,6 +208,7 @@ function addReviewForm(wine){
          `
          // debugger
    reviewContainer.append(reviewForm)
+   
 
    let submitReview = document.getElementById('create-review')
    // debugger
@@ -192,12 +224,12 @@ function addReviewForm(wine){
 
 function postReview(thisWine){
    // debugger
- let wine_rating = document.getElementById('rating-input').value
- let review = document.getElementById('review-input').value
+ let wine_rating = parseInt(document.getElementById('rating-input').value)
+ let this_review = document.getElementById('review-input').value
  let reviewDiv = document.getElementById('review-div')
 
- reviewDiv.append(wine_rating, review)
- let wines_id = thisWine.dataset.id
+ reviewDiv.append(wine_rating, this_review)
+ let wines_id = parseInt(thisWine.dataset.id)
 //  debugger
 
  fetch(REVIEWSURL, {
@@ -205,9 +237,10 @@ function postReview(thisWine){
    headers: {
       'Content-Type': 'application/json'},
    body: JSON.stringify({
-      content: review,
+      content: this_review,
       rating: wine_rating,
-      wine_id: wines_id
+      wine_id: wines_id,
+      user_id: 1
    })
    })
 }
