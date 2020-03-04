@@ -142,35 +142,108 @@ function individWinePage(wine){
 
    loadReviews(wine)
 
-
-
    let review_button = document.getElementById('rvw-btn')
    review_button.addEventListener("click", function(e){addReviewForm(wine)})
 }
 
 function loadReviews(wine){
-   debugger
-   let review_div = document.getElementById('post-review-id')
-   wine.reviews.forEach(review=>{
-      fetch(REVIEWSURL)
-      .then(resp=>resp.json())
-      .then(loadIndividualWine)
+   // debugger
+   
+   fetch(REVIEWSURL)
+   .then(resp=>resp.json())
+   .then(reviews => {
+      // debugger
+      let this_wines_reviews = reviews.filter(review=> review.wine_id === wine.id)
+      this_wines_reviews.forEach(review=>{ 
+         // debugger
+         let review_div = document.getElementById('post-review-div')
+            let ul = document.createElement('ul')
+            ul.className = 'review-text'
+            ul.innerHTML=`
+            ${review.rating}<br>
+            ${review.content}<br>
+            <button id='edit-review-button' class='edit-button' data-review-id=${review.id}>Edit Review</button>
+            `
+            review_div.append(ul)
 
+            let edit_review_button = document.getElementById('edit-review-button')
+            edit_review_button.addEventListener('click', function(e){
+               let reviewContainer = document.getElementById('the-review-container')
+               let reviewForm = document.createElement("FORM")
+               reviewForm.id = "create-review"
+               reviewForm.dataset.id = wine.id
+               reviewForm.className = "add-review-form"
+               reviewForm.innerHTML =`
+                     <h3>Review This Wine:</h3>
+
+                     <input id='rating-input'
+                        type="integer"
+                        name="rating"
+                        value=""
+                        placeholder="${review.rating}"
+                        class="input-text"
+                     />
+                     <br />
+                     <textarea id='review-input'
+                        name="comment"
+                        value=""
+                        placeholder="${review.content}"
+                        class="input-text"></textarea>
+                     <br />
+                     <input id='review-submit' data-id='${wine.id}' data-review-id='${review.id}'
+                        type="submit"
+                        name="submit"
+                        value="Submit Review"
+                        class="submit-rvw"
+                     />
+
+                  `
+                  // debugger
+            reviewContainer.append(reviewForm)
+            let submitReview = document.getElementById('create-review')
+            // debugger
+            submitReview.addEventListener('submit', function(e){
+               e.preventDefault()
+               // debugger
+               let thisWine = e.target
+               // debugger
+               patchReview(thisWine)
+   })
+            })
+      })
+
+})}
+
+function patchReview(thisWine){
+   // debugger
+   let edit_review_button = document.getElementById('edit-review-button')
+   let this_review_id = edit_review_button.dataset.reviewId 
+
+   let wine_rating = parseInt(document.getElementById('rating-input').value)
+   let this_review = document.getElementById('review-input').value
+   let reviewDiv = document.getElementById('review-div')
+
+   fetch(REVIEWSURL+`/${this_review_id}`,{
+      method: "PATCH",
+      headers: { 
+         'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+         rating: wine_rating,
+         content: this_review
+      })
+   }).then(resp=>resp.json())
+   .then(review=> updateReview(review))
+   // debugger
 }
 
+function updateReview(review){
+   // debugger
+   let this_review_id = review.id 
+   document.getElementBy()
+   if(review.id === ) 
 
-{
-         
-   let li = document.createElement('li')
-   li.innerHTML=`
-   ${review.rating}<br>
-   ${review.content}<br>
-   `
-   review_div.append(li)
-})       
-
-
-
+}
 
 
 function addReviewForm(wine){
@@ -180,6 +253,7 @@ function addReviewForm(wine){
       let reviewForm = document.createElement("FORM")
       reviewForm.id = "create-review"
       reviewForm.dataset.id = wine.id
+
       reviewForm.className = "add-review-form"
       reviewForm.innerHTML =`
             <h3>Review This Wine:</h3>
