@@ -222,6 +222,12 @@ function patchReview(thisWine){
    let wine_rating = parseInt(document.getElementById('rating-input').value)
    let this_review = document.getElementById('review-input').value
    let reviewDiv = document.getElementById('review-div')
+   let review_ul = document.getElementsByClassName('review-text')[0]
+   review_ul.innerHTML=`
+      ${wine_rating}<br>
+      ${this_review}<br>
+      <button id='edit-review-button' class='edit-button' data-review-id='1'>Edit Review</button>`
+            
 
    fetch(REVIEWSURL+`/${this_review_id}`,{
       method: "PATCH",
@@ -232,18 +238,26 @@ function patchReview(thisWine){
          rating: wine_rating,
          content: this_review
       })
-   }).then(resp=>resp.json())
-   .then(review=> updateReview(review))
+   })
+   // .then(resp=>resp.json())
+   // .then(review=> updateReview(review))
    // debugger
 }
 
-function updateReview(review){
-   // debugger
-   // let this_review_id = review.id 
-   // document.getElementBy()
-   // if(review.id === ) 
+// function updateReview(review){
+//    let this_review_id = review.id 
+//    let found_review = document.querySelector(`button`)
+//    // debugger
+//    let rating_input = document.getElementById('rating-input').value
+//    let comment_content = document.getElementById('review-input').value
 
-}
+//    review.rating = rating_input
+//    review.content = comment_content
+//    found_review.innerHTML=`
+      
+//    `
+
+// }
 
 
 function addReviewForm(wine){
