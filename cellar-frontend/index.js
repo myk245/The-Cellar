@@ -124,15 +124,19 @@ function individWinePage(wine){
       </div><br><br>
 
       <div id='the-review-container'></div>
-
-
-      <div class="back-from-product-page">
-         <a href="#" class="back-btn">Back to ${wine.wineType} Wines</a>
-      </div>
+      <br>
 
       <div id='review-div'></div>
+      <br>
 
-      <div class='post-review-class' id='post-review-div'>Review</div>
+      <div class='post-review-class' id='post-review-div'>Reviews</div>
+
+      <div class="back-from-product-page">
+      <br>
+      <br>
+      <br><br><br><br><br><br>
+         <a href="#" class="back-btn">Back to ${wine.wineType} Wines</a>
+      </div>
 
     </div>
 
@@ -160,9 +164,11 @@ function loadReviews(wine){
             let ul = document.createElement('ul')
             ul.className = 'review-text'
             ul.innerHTML=`
-            ${review.rating}<br>
-            ${review.content}<br>
+            <div class='review-rating-content' >
+            <strong>Rating:</strong> ${review.rating}<br>
+            <strong>Review:</strong> ${review.content}<br>
             <button id='edit-review-button' class='edit-button' data-review-id=${review.id}>Edit Review</button>
+            </div>
             `
             review_div.append(ul)
 
@@ -174,28 +180,31 @@ function loadReviews(wine){
                reviewForm.dataset.id = wine.id
                reviewForm.className = "add-review-form"
                reviewForm.innerHTML =`
-                     <h3>Review This Wine:</h3>
+              
 
-                     <input id='rating-input'
-                        type="integer"
-                        name="rating"
-                        value=""
-                        placeholder="${review.rating}"
-                        class="input-text"
-                     />
-                     <br />
-                     <textarea id='review-input'
-                        name="comment"
-                        value=""
-                        placeholder="${review.content}"
-                        class="input-text"></textarea>
-                     <br />
-                     <input id='review-submit' data-id='${wine.id}' data-review-id='${review.id}'
-                        type="submit"
-                        name="submit"
-                        value="Submit Review"
-                        class="submit-rvw"
-                     />
+                 <div class="row">
+                   <div class="col-25">
+                     <label for="wRating">Rating:</label>
+                   </div>
+                   <div class="col-75">
+                     <input type="text" id="rating-input" name="rating" placeholder="Your wine rating...${review.rating}">
+                   </div>
+                 </div>
+
+                 <div class="row">
+                   <div class="col-25">
+                     <label for="tNotes">Tasting Notes:</label>
+                   </div>
+                   <div class="col-75">
+                     <input type="text" id="review-input" name="lastname" placeholder="Thoughts about this wine... ${review.content}">
+                   </div>
+                 </div>
+
+                 </div>
+                 <div class="row">
+                   <input id='review-submit' data-id='${wine.id}' data-review-id='${review.id}' type="submit" value="Submit">
+                 </div>
+             
 
                   `
                   // debugger
@@ -261,7 +270,6 @@ function patchReview(thisWine){
 
 
 function addReviewForm(wine){
-
       // debugger
       let reviewContainer = document.getElementById('the-review-container')
       let reviewForm = document.createElement("FORM")
@@ -292,12 +300,10 @@ function addReviewForm(wine){
                value="Submit Review"
                class="submit-rvw"
             />
-
          `
          // debugger
    reviewContainer.append(reviewForm)
    
-
    let submitReview = document.getElementById('create-review')
    // debugger
    submitReview.addEventListener('submit', function(e){
@@ -340,5 +346,27 @@ function postReview(thisWine){
 
 
 
+{/* <h1>Review This Wine:</h1>
 
+<input id='rating-input'
+   type="integer"
+   name="rating"
+   value=""
+   placeholder="${review.rating}"
+   class="input-text"
+/>
+<br />
+<textarea id='review-input'
+   name="comment"
+   value=""
+   placeholder="${review.content}"
+   class="input-text"></textarea>
+<br />
+<input id='review-submit' data-id='${wine.id}' data-review-id='${review.id}'
+   type="submit"
+   name="submit"
+   value="Submit Review"
+   class="submit-rvw"
+/>
+</div> */}
 
