@@ -271,7 +271,7 @@ label {
 
 /* Style the submit button */
 input[type=submit] {
-  background-color: #4CAF50;
+  background-color: rgb(183, 197, 215);
   color: white;
   padding: 12px 20px;
   border: none;
